@@ -1,0 +1,7 @@
+{
+  "name": "Hope Rise Produtora",
+  "description": "Landing page profissional para a Hope Rise Produtora - Produção Audiovisual e Musical.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
