@@ -69,6 +69,8 @@ const Navbar = () => {
               <a href="#home" className="hover:text-brand transition-colors text-sm font-medium uppercase tracking-widest">Início</a>
               <a href="#sobre" className="hover:text-brand transition-colors text-sm font-medium uppercase tracking-widest">Quem Somos</a>
               <a href="#servicos" className="hover:text-brand transition-colors text-sm font-medium uppercase tracking-widest">Serviços</a>
+              <a href="#depoimentos" className="hover:text-brand transition-colors text-sm font-medium uppercase tracking-widest">Depoimentos</a>
+              <a href="#endereco" className="hover:text-brand transition-colors text-sm font-medium uppercase tracking-widest">Endereço</a>
               <a href="#contato" className="hover:text-brand transition-colors text-sm font-medium uppercase tracking-widest">Contato</a>
               <a 
                 href="https://wa.me/5527981210977" 
@@ -101,6 +103,8 @@ const Navbar = () => {
               <a href="#home" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium hover:text-brand">Início</a>
               <a href="#sobre" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium hover:text-brand">Quem Somos</a>
               <a href="#servicos" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium hover:text-brand">Serviços</a>
+              <a href="#depoimentos" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium hover:text-brand">Depoimentos</a>
+              <a href="#endereco" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium hover:text-brand">Endereço</a>
               <a href="#contato" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium hover:text-brand">Contato</a>
             </div>
           </motion.div>
@@ -188,7 +192,7 @@ const About = () => {
           >
             <div className="aspect-square rounded-2xl overflow-hidden border border-white/10">
               <img 
-                src="https://images.unsplash.com/photo-1520529011842-be1b4459ce50?auto=format&fit=crop&q=80&w=1000" 
+                src="https://www.hoperiseprodutora.com/fotos/IMG_0057.jpg" 
                 alt="Produção Musical" 
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 referrerPolicy="no-referrer"
@@ -267,14 +271,14 @@ const Services = () => {
 
 const TESTIMONIALS = [
   {
-    name: "Vinicius Ferreira",
-    text: "A Hope é um lugar de esperançar. Para quem vive da arte, acreditar no próprio trabalho é um desafio diário e a Hope é o espaço que nos ajuda a não desistir. A ter esperança na nossa arte. No que a gente produz. Em quem a gente é.",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200",
-  },
-  {
     name: "Leticia Santos",
     text: "Gravar na Hope foi uma virada de chave na minha carreira. A qualidade técnica e o acolhimento são incomparáveis. Me senti em casa e o resultado final superou todas as minhas expectativas.",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200",
+  },
+  {
+    name: "Vinicius Ferreira",
+    text: "A Hope é um lugar de esperançar. Para quem vive da arte, acreditar no próprio trabalho é um desafio diário e a Hope é o espaço que nos ajuda a não desistir. A ter esperança na nossa arte. No que a gente produz. Em quem a gente é.",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200",
   },
   {
     name: "Gabriel Lima",
@@ -284,73 +288,82 @@ const TESTIMONIALS = [
 ];
 
 const Testimonials = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(1); // Vinicius Ferreira is at index 1
 
   const next = () => setActiveIndex((prev) => (prev + 1) % TESTIMONIALS.length);
   const prev = () => setActiveIndex((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
 
   return (
-    <section className="py-24 bg-zinc-950 relative overflow-hidden">
+    <section id="depoimentos" className="py-24 bg-zinc-950 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
           <span className="text-brand font-bold tracking-widest uppercase text-sm mb-4 block">Vozes da Hope</span>
           <h2 className="text-4xl md:text-5xl font-display font-bold">O que dizem nossos artistas</h2>
         </div>
 
-        <div className="max-w-4xl mx-auto relative px-12 md:px-20">
+        <div className="relative max-w-5xl mx-auto">
           {/* Navigation Buttons - Sides */}
           <button 
             onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 md:w-14 md:h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand hover:text-black transition-all z-30 bg-zinc-900/50 backdrop-blur-sm"
+            className="absolute left-0 md:-left-12 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand hover:text-black transition-all z-40 bg-zinc-900/80 backdrop-blur-sm"
           >
             <ChevronRight size={24} className="rotate-180" />
           </button>
           
           <button 
             onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 md:w-14 md:h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand hover:text-black transition-all z-30 bg-zinc-900/50 backdrop-blur-sm"
+            className="absolute right-0 md:-right-12 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand hover:text-black transition-all z-40 bg-zinc-900/80 backdrop-blur-sm"
           >
             <ChevronRight size={24} />
           </button>
 
-          <div className="relative h-[450px] md:h-[400px] flex items-center justify-center">
+          <div className="flex items-center justify-center gap-4 md:gap-8 min-h-[450px] relative">
             {TESTIMONIALS.map((testimonial, index) => {
-              // Calculate position relative to activeIndex
-              let position = index - activeIndex;
-              if (position < 0) position += TESTIMONIALS.length;
+              // Calculate relative position for the 3-card view
+              let diff = index - activeIndex;
+              // Handle wrap around
+              if (diff > 1) diff -= TESTIMONIALS.length;
+              if (diff < -1) diff += TESTIMONIALS.length;
               
-              // We only want to show 3 cards max in the stack
-              const isVisible = position <= 2;
-              
+              const isActive = diff === 0;
+              const isVisible = Math.abs(diff) <= 1;
+
               return (
                 <motion.div
                   key={index}
                   initial={false}
                   animate={{
-                    scale: isVisible ? 1 - position * 0.05 : 0.8,
-                    y: isVisible ? position * 20 : 40,
-                    opacity: isVisible ? 1 - position * 0.3 : 0,
-                    zIndex: TESTIMONIALS.length - position,
+                    scale: isActive ? 1 : 0.85,
+                    opacity: isVisible ? (isActive ? 1 : 0.4) : 0,
+                    x: diff * 100 + "%",
+                    zIndex: isActive ? 30 : 20,
+                    filter: isActive ? "blur(0px)" : "blur(2px)",
                   }}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  transition={{ type: "spring", stiffness: 200, damping: 25 }}
                   className={cn(
-                    "absolute inset-0 glass-card p-8 md:p-12 rounded-[2.5rem] md:rounded-[3rem] flex flex-col justify-center",
-                    !isVisible && "pointer-events-none"
+                    "absolute w-full max-w-md glass-card p-8 md:p-10 rounded-[2.5rem] md:rounded-[3rem] flex flex-col justify-center transition-shadow duration-500",
+                    isActive ? "border-brand/40 shadow-[0_0_50px_-12px_rgba(56,173,191,0.3)] bg-white/5" : "pointer-events-none"
                   )}
                 >
-                  <div className="absolute top-8 left-8 text-brand/10 pointer-events-none">
-                    <Play size={80} fill="currentColor" className="rotate-180" />
+                  <div className="absolute top-6 left-6 text-brand/10 pointer-events-none">
+                    <Play size={isActive ? 60 : 40} fill="currentColor" className="rotate-180" />
                   </div>
                   
                   <div className="relative z-10">
                     <blockquote className="mb-8">
-                      <p className="text-lg md:text-xl font-display italic leading-relaxed text-white/90">
+                      <p className={cn(
+                        "font-display italic leading-relaxed text-white/90 transition-all",
+                        isActive ? "text-lg md:text-xl" : "text-base"
+                      )}>
                         "{testimonial.text}"
                       </p>
                     </blockquote>
                     
-                    <div className="flex items-center gap-4 md:gap-6">
-                      <div className="w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-brand/30 shrink-0">
+                    <div className="flex items-center gap-4">
+                      <div className={cn(
+                        "rounded-full overflow-hidden border-2 border-brand/30 shrink-0 transition-all",
+                        isActive ? "w-14 h-14" : "w-10 h-10"
+                      )}>
                         <img 
                           src={testimonial.image} 
                           alt={testimonial.name}
@@ -359,8 +372,8 @@ const Testimonials = () => {
                         />
                       </div>
                       <div>
-                        <div className="w-8 md:w-12 h-[1px] bg-brand mb-2" />
-                        <cite className="not-italic font-bold tracking-widest uppercase text-brand text-xs md:text-sm">
+                        <div className="w-8 h-[1px] bg-brand mb-1" />
+                        <cite className="not-italic font-bold tracking-widest uppercase text-brand text-xs">
                           {testimonial.name}
                         </cite>
                       </div>
@@ -378,7 +391,7 @@ const Testimonials = () => {
 
 const Location = () => {
   return (
-    <section className="py-24 bg-cinematic-black">
+    <section id="endereco" className="py-24 bg-cinematic-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -386,7 +399,7 @@ const Location = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-brand font-bold tracking-widest uppercase text-sm mb-4 block">Nossa Casa</span>
+            <span className="text-brand font-bold tracking-widest uppercase text-sm mb-4 block">Endereço</span>
             <h2 className="text-4xl font-display font-bold mb-8">Onde a mágica acontece</h2>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
@@ -400,7 +413,7 @@ const Location = () => {
                 Um espaço projetado para o conforto e a melhor performance técnica. Atendemos artistas de todo o Brasil, presencialmente ou através de consultoria e produção online.
               </p>
               <a 
-                href="https://maps.app.goo.gl/V17uq3rg9AhM7aCp8" 
+                href="https://maps.app.goo.gl/ngKbZbrfKvFvwQc57" 
                 target="_blank" 
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 text-brand font-bold hover:underline"
@@ -417,7 +430,7 @@ const Location = () => {
             className="h-[400px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
           >
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3745.186663248354!2d-40.2319349!3d-20.1887955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDExJzE5LjciUyA0MMKwMTMnNTUuMCJX!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+              src="https://maps.google.com/maps?q=hope%20rise%20produtora&t=&z=14&ie=UTF8&iwloc=B&output=embed" 
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 
